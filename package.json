@@ -1,5 +1,5 @@
 {
-	"name": "boilerplate-project-messagebaord",
+	"name": "boilerplate-project-messageboard",
 	"version": "0.0.1",
 	"description": "InfoSec project for freeCodeCamp",
 	"main": "server.js",
@@ -14,7 +14,8 @@
 		"dotenv": "^8.2.0",
 		"express": "^4.14.0",
 		"helmet": "^3.1.0",
-		"mocha": "^3.2.0"
+		"mocha": "^3.2.0",
+		"mongoose": "^5.11.15"
 	},
 	"repository": {
 		"type": "git",
@@ -22,7 +23,8 @@
 	},
 	"keywords": [
 		"node",
-		"express"
+		"express",
+		"helmet"
 	],
 	"license": "MIT"
 }

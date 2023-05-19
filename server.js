@@ -3,12 +3,22 @@ require('dotenv').config();
 const express     = require('express');
 const bodyParser  = require('body-parser');
 const cors        = require('cors');
+const helmet      = require('helmet');
+const mongoose    = require('mongoose');
 
 const apiRoutes         = require('./routes/api.js');
 const fccTestingRoutes  = require('./routes/fcctesting.js');
 const runner            = require('./test-runner');
 
 const app = express();
+
+app.use(helmet.referrerPolicy({policy: ["same-origin"]}));
+app.use(helmet.frameguard({action:'SAMEORIGIN'}));
+app.use(helmet.dnsPrefetchControl());
+
+try {mongoose.connect(process.env.DB_URI, { useFindAndModify: false,
+   useNewUrlParser: true , useUnifiedTopology: true });
+} catch (err) {console.log(err)};
 
 app.use('/public', express.static(process.cwd() + '/public'));
 
